@@ -1,0 +1,32 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>{% block title %}Overview{% endblock %} | Arden Nexus</title>
+    <link rel="icon" href="{% static 'image/ArdenNexus.jpeg' %}">
+    <link rel="stylesheet" href="{% static 'css/dashboard.css' %}">
+    {% block scripts %}{% endblock %}
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to content</a>
+<aside class="side">
+    <a class="brand" href="/">Arden Nexus</a>
+    <nav aria-label="Main navigation">
+        <a href="/" {% if request.path == '/' %}class="active" aria-current="page"{% endif %}>{% include 'icon.html' with name='overview' %} Market overview</a>
+        <a href="/predict/" {% if request.path == '/predict/' %}class="active" aria-current="page"{% endif %}>{% include 'icon.html' with name='up' %} Predictions</a>
+        <a href="/news/" {% if request.path == '/news/' %}class="active" aria-current="page"{% endif %}>{% include 'icon.html' with name='news' %} Market news</a>
+    </nav>
+    <div class="side-footer">Gold market research</div>
+</aside>
+<div class="workspace">
+    <header class="topbar">
+        <span>{% block breadcrumb %}Market overview{% endblock %}</span>
+        <span class="market-label">Gold futures <span class="slash">/</span> GC=F <span class="slash">/</span> USD</span>
+    </header>
+    <main id="main">{% block content %}{% endblock %}</main>
+    <footer><span>&copy; Arden Nexus</span><span>For research purposes. Not investment advice.</span></footer>
+</div>
+</body>
+</html>
