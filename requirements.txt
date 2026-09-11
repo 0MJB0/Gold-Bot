@@ -1,7 +1,9 @@
 # Python >=3.12; direct application dependencies.
 # Versions match the working local environment; transitive dependencies are resolved by pip.
 Django==6.1.1
-django-heroku==0.3.1
+dj-database-url==3.1.2
+whitenoise==6.12.0
+psycopg2-binary==2.9.11
 pandas==3.0.5
 scikit-learn==1.9.1
 yfinance==1.7.0
